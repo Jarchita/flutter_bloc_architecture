@@ -14,6 +14,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'build')
+    
 
     steps:
       - uses: actions/checkout@v4
@@ -55,10 +57,10 @@ jobs:
           cache: true
           # flutter-version-file: pubspec.yaml # path to pubspec.yaml
           flutter-version: 3.19.6
-      - run: flutter --version
+    
       - run: flutter pub get
       # - run: flutter test
-
+      
       #build for Android
       - run: flutter build apk --release
       # - run: flutter build appbundle --release
