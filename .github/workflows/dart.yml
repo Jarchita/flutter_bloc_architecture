@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repository
       - uses: actions/checkout@v4
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
@@ -41,6 +40,10 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: dart test
+
+      - name: actionlint
+        uses: raven-actions/actionlint@v1.0.3
+            
         
       - name: Flutter action
         uses: subosito/flutter-action@v2.16.0
