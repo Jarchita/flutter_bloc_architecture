@@ -6,6 +6,7 @@ Contains below features:
  - API workflow using Dio and Retrofit.
  - Localization
  - Common components used throughout the App
+ - CI/CD workflow configuration for GitHub Actions
 
 
 ## App Screenshots
