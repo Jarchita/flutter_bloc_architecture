@@ -63,8 +63,8 @@ jobs:
       - run: flutter build apk --release
       # - run: flutter build appbundle --release
 
-      #build fot iOS
-      - run: flutter build ios --release --no-codesign
+      #build for iOS
+      # - run: flutter build ios --release --no-codesign
 
 
             
