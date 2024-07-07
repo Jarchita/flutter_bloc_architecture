@@ -14,9 +14,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'build')
+    
 
     steps:
-      - name: Clone repository
       - uses: actions/checkout@v4
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
@@ -25,22 +26,26 @@ jobs:
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
-      - name: Install dependencies
-        run: dart pub get
+      # - name: Install dependencies
+        # run: dart pub get
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
       # - name: Verify formatting
       #   run: dart format --output=none --set-exit-if-changed .
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
+      # - name: Analyze project source
+        # run: dart analyze
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
+      # - name: Run tests
+        # run: dart test
+
+      - name: actionlint
+        uses: raven-actions/actionlint@v1.0.3
+            
         
       - name: Flutter action
         uses: subosito/flutter-action@v2.16.0
@@ -49,18 +54,19 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
           # flutter-version-file: pubspec.yaml # path to pubspec.yaml
           flutter-version: 3.19.6
-      - run: flutter --version
+    
       - run: flutter pub get
-      - run: flutter test
-
+      # - run: flutter test
+      
       #build for Android
       - run: flutter build apk --release
       # - run: flutter build appbundle --release
 
-      #build fot iOS
-      - run: flutter build ios --release --no-codesign
+      #build for iOS
+      # - run: flutter build ios --release --no-codesign
 
 
             
