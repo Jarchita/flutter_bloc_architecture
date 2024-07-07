@@ -19,6 +19,6 @@ Contains below features:
 ![Screen 7](app_screenshots/7.png)
 
 
-### command generate model classes
+### command to generate model classes
 flutter pub run build_runner build --delete-conflicting-outputs
 
