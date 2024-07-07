@@ -9,7 +9,7 @@ Contains below features:
  - CI/CD workflow configuration for GitHub Actions
 
 
-## App Screenshots
+## App Screenshots of the App
 
 ![Screen 1](app_screenshots/1.png)
 ![Screen 2](app_screenshots/2.png)
